@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% for article in articles %}
+        <li>{{ article.title }}</li>
+        <li>{{ article.content }}</li>
+        <a href={{path('blog_show', {id: article.id})}}>Voir l'article</a>
+        <a href={{path('blog_delete', {id: article.id})}}>Supprimer l'article</a>
+        <br>
+    {% endfor %}
+</div>
+{% endblock %}
